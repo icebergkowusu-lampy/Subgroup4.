@@ -1,1 +1,0 @@
-(function(){function r(){document.querySelectorAll("canvas").forEach(function(c){if(c.parentElement&&c.parentElement.clientWidth){c.style.maxWidth="100%";}})}window.addEventListener("resize",r,{passive:true});window.addEventListener("orientationchange",r,{passive:true});document.addEventListener("DOMContentLoaded",r);})();
