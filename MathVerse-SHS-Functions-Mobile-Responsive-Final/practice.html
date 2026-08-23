@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Practice · MathVerse</title>
+<meta name="description" content="Six practice questions on linear and non-linear functions with instant feedback.">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/mobile-responsive.css">
+</head>
+<body class="is-loading">
+<div class="site-loader" id="siteLoader" aria-hidden="true">
+  <div class="site-loader-inner">
+    <div class="site-loader-mark">&sum;</div>
+    <div class="site-loader-text">MathVerse</div>
+    <div class="site-loader-bar"><span></span></div>
+  </div>
+</div>
+<script>
+/* Runs immediately (not deferred) so a returning visit to ANY page hides
+   the loader before first paint — no flash, no delay. Only the very first
+   page opened in a browser session leaves it visible for loader.js to
+   animate away after ~2s. */
+(function(){
+  try{
+    if(sessionStorage.getItem("mv-visited") === "1"){
+      var el = document.getElementById("siteLoader");
+      if(el) el.style.display = "none";
+      document.body.classList.remove("is-loading");
+    }else{
+      sessionStorage.setItem("mv-visited", "1");
+    }
+  }catch(e){ /* private browsing etc. — fail open, just show it once */ }
+})();
+</script>
+<a href="#mainContent" class="skip-link">Skip to main content</a>
+<div class="app-shell">
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<aside class="sidebar" id="sidebar" aria-label="Primary navigation">
+  <button class="sidebar-close" id="sidebarClose" aria-label="Close menu">&times;</button>
+  <div class="brand">
+    <div class="brand-mark" aria-hidden="true">&sum;</div>
+    <div class="brand-text">
+      <div class="brand-name">MathVerse</div>
+      <div class="brand-sub">Mathematics Learning</div>
+    </div>
+  </div>
+  <div class="group-tag">
+    Group 2 &middot; Subgroup 4<br>
+    Department of Mathematics
+  </div>
+  <ul class="nav-list">
+    <li><a href="index.html" ><span class="nav-ico">&#8962;</span> Home</a></li>
+    <li><a href="lesson.html" ><span class="nav-ico">&fnof;</span> Lessons</a></li>
+    <li><a href="interactive.html" ><span class="nav-ico">&#9881;</span> Interactive Lab</a></li>
+    <li><a href="practice.html" class="active"><span class="nav-ico">&#9998;</span> Practice</a></li>
+    <li><a href="assessment.html" ><span class="nav-ico">&#9989;</span> Assessment</a></li>
+    <li><a href="teaching-guide.html" ><span class="nav-ico">&#128218;</span> Teaching Guide</a></li>
+    <li><a href="team.html" ><span class="nav-ico">&#128101;</span> Our Team</a></li>
+    <li><a href="references.html" ><span class="nav-ico">&#128279;</span> References</a></li>
+    <li><a href="contact.html" ><span class="nav-ico">&#9993;</span> Help &amp; Contact</a></li>
+    <li><a href="settings.html" ><span class="nav-ico">&#9881;&#65039;</span> Settings</a></li>
+    <li><a href="rating.html" ><span class="nav-ico">&#9733;</span> Rate Us</a></li>
+  </ul>
+  <div class="sidebar-footer">
+    ICTD 361 &middot; Web Technologies for<br>Mathematics Teachers<br>University of Education, Winneba
+  </div>
+</aside>
+
+<div class="main-col">
+  <header class="site-header">
+    <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+    <div class="header-title">SHS Mathematics <small>Functions Lesson &middot; Practice</small></div>
+    <div class="search-wrap">
+      <span class="search-ico" aria-hidden="true">&#128269;</span>
+      <input type="search" id="lessonSearch" placeholder="Search lesson sections&hellip;" aria-label="Search lesson sections">
+    </div>
+    <div class="header-actions">
+      <span id="gmtClock" class="hbtn" aria-live="polite">00:00:00 GMT</span>
+      <button class="hbtn" id="calendarBtn" type="button" aria-haspopup="dialog"><span aria-hidden="true">&#128197;</span><span class="lbl">Calendar</span></button>
+      <button class="hbtn" id="darkModeBtn" type="button" aria-pressed="false"><span aria-hidden="true">&#127769;</span><span class="lbl">Dark</span></button>
+      <button class="hbtn" id="eyeComfortBtn" type="button" aria-pressed="false"><span aria-hidden="true">&#128065;</span><span class="lbl">Eye comfort</span></button>
+      <button class="hbtn" id="fontMinusBtn" type="button" aria-label="Decrease font size">A-</button>
+      <button class="hbtn" id="fontPlusBtn" type="button" aria-label="Increase font size">A+</button>
+    </div>
+  </header>
+
+  <main id="mainContent" class="page-content">
+<section class="hero" style="padding:34px clamp(20px,5vw,56px);">
+  <div class="hero-fx" aria-hidden="true">&#9998;</div>
+  <div class="hero-content">
+    <span class="badge">PRACTICE</span>
+    <h1 style="font-size:clamp(1.4rem,3.4vw,2rem);">Six practice questions</h1>
+    <p>Work through each question. Use the hint if you get stuck, check your answer, then reveal the worked solution to confirm your reasoning.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="card">
+    <p style="font-weight:600;">Question 1</p>
+    <p>Is y = 4x + 7 linear or non-linear?</p>
+    <form id="practiceQ1Form">
+      <div class="opt-list">
+        <label><input type="radio" name="p1" value="linear"> Linear</label>
+        <label><input type="radio" name="p1" value="nonlinear"> Non-linear</label>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;">
+        <button type="submit" class="btn btn-primary btn-sm">Check answer</button>
+        <button type="button" class="btn btn-outline btn-sm" data-toggle-target="p1Hint">Hint</button>
+        <button type="button" class="btn btn-outline btn-sm" data-toggle-target="p1Sol">Solution</button>
+      </div>
+    </form>
+    <div class="feedback-msg" id="practiceQ1Feedback"></div>
+    <div class="hint-box" id="p1Hint">Look at the highest power of x.</div>
+    <div class="solution-box" id="p1Sol">x has power 1 and the rate of change is constant &mdash; the graph is a straight line, so it is <strong>linear</strong>.</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="card">
+    <p style="font-weight:600;">Question 2</p>
+    <p>Classify y = x&sup2; + 3.</p>
+    <form id="practiceQ2Form">
+      <div class="opt-list">
+        <label><input type="radio" name="p2" value="linear"> Linear</label>
+        <label><input type="radio" name="p2" value="nonlinear"> Non-linear</label>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;">
+        <button type="submit" class="btn btn-primary btn-sm">Check answer</button>
+        <button type="button" class="btn btn-outline btn-sm" data-toggle-target="p2Hint">Hint</button>
+        <button type="button" class="btn btn-outline btn-sm" data-toggle-target="p2Sol">Solution</button>
+      </div>
+    </form>
+    <div class="feedback-msg" id="practiceQ2Feedback"></div>
+    <div class="hint-box" id="p2Hint">What power is x raised to?</div>
+    <div class="solution-box" id="p2Sol">x is squared, so the graph is a curve, not a straight line &mdash; it is <strong>non-linear</strong>.</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="card">
+    <p style="font-weight:600;">Question 3</p>
+    <p>If f(x) = 2x + 3, find f(5).</p>
+    <form id="practiceQ3Form">
+      <label for="p3answer" class="hidden">Your answer</label>
+      <input type="text" id="p3answer" class="short-answer" placeholder="Type your answer" style="max-width:220px;">
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;">
+        <button type="submit" class="btn btn-primary btn-sm">Check answer</button>
+        <button type="button" class="btn btn-outline btn-sm" data-toggle-target="p3Hint">Hint</button>
+        <button type="button" class="btn btn-outline btn-sm" data-toggle-target="p3Sol">Solution</button>
+      </div>
+    </form>
+    <div class="feedback-msg" id="practiceQ3Feedback"></div>
+    <div class="hint-box" id="p3Hint">Substitute 5 wherever x appears.</div>
+    <div class="solution-box" id="p3Sol">f(5) = 2(5) + 3 = 10 + 3 = <strong>13</strong></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="card">
+    <p style="font-weight:600;">Question 4</p>
+    <p>Solve 3x + 9 = 18.</p>
+    <form id="practiceQ4Form">
+      <label for="p4answer" class="hidden">Your answer</label>
+      <input type="text" id="p4answer" class="short-answer" placeholder="e.g. x = 3" style="max-width:220px;">
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;">
+        <button type="submit" class="btn btn-primary btn-sm">Check answer</button>
+        <button type="button" class="btn btn-outline btn-sm" data-toggle-target="p4Hint">Hint</button>
+        <button type="button" class="btn btn-outline btn-sm" data-toggle-target="p4Sol">Solution</button>
+      </div>
+    </form>
+    <div class="feedback-msg" id="practiceQ4Feedback"></div>
+    <div class="hint-box" id="p4Hint">Subtract 9 from both sides first.</div>
+    <div class="solution-box" id="p4Sol">3x = 9 &rarr; <strong>x = 3</strong></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="card">
+    <p style="font-weight:600;">Question 5</p>
+    <p>Solve simultaneously: x + y = 7 and x &minus; y = 1.</p>
+    <form id="practiceQ5Form">
+      <label for="p5answer" class="hidden">Your answer</label>
+      <input type="text" id="p5answer" class="short-answer" placeholder="e.g. x = 4, y = 3" style="max-width:260px;">
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;">
+        <button type="submit" class="btn btn-primary btn-sm">Check answer</button>
+        <button type="button" class="btn btn-outline btn-sm" data-toggle-target="p5Hint">Hint</button>
+        <button type="button" class="btn btn-outline btn-sm" data-toggle-target="p5Sol">Solution</button>
+      </div>
+    </form>
+    <div class="feedback-msg" id="practiceQ5Feedback"></div>
+    <div class="hint-box" id="p5Hint">Add the two equations to eliminate y.</div>
+    <div class="solution-box" id="p5Sol">2x = 8 &rarr; x = 4, then y = 7 &minus; 4 = 3 &rarr; <strong>x = 4, y = 3</strong></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="card">
+    <p style="font-weight:600;">Question 6</p>
+    <p>A taxi charges GH&#8373;10 plus GH&#8373;5 per kilometre. Write a function for total cost C after travelling x kilometres.</p>
+    <form id="practiceQ6Form">
+      <label for="p6answer" class="hidden">Your answer</label>
+      <input type="text" id="p6answer" class="short-answer" placeholder="e.g. C = 5x + 10" style="max-width:260px;">
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;">
+        <button type="submit" class="btn btn-primary btn-sm">Check answer</button>
+        <button type="button" class="btn btn-outline btn-sm" data-toggle-target="p6Hint">Hint</button>
+        <button type="button" class="btn btn-outline btn-sm" data-toggle-target="p6Sol">Solution</button>
+      </div>
+    </form>
+    <div class="feedback-msg" id="practiceQ6Feedback"></div>
+    <div class="hint-box" id="p6Hint">The fixed charge is added to the variable cost per kilometre.</div>
+    <div class="solution-box" id="p6Sol"><strong>C = 5x + 10</strong></div>
+  </div>
+</section>
+
+<nav class="bottom-nav" aria-label="Section navigation">
+  <a href="interactive.html" class="btn btn-secondary btn-sm">&larr; Interactive Lab</a>
+  <a href="assessment.html" class="btn btn-primary btn-sm">Take the Assessment &rarr;</a>
+</nav>
+  </main>
+
+  <footer class="site-footer">
+    <div>&sum; <strong>MathVerse</strong> &mdash; Interactive Mathematics Learning Platform</div>
+    <div>ICTD 361 &middot; Group 2 &middot; Subgroup 4</div>
+    <div>Department of Mathematics &middot; University of Education, Winneba</div>
+    <div style="margin-top:10px;font-size:.72rem;opacity:.75;">&copy; 2026 MathVerse. All rights reserved.</div>
+  </footer>
+</div>
+</div>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top">&uarr;</button>
+
+<div class="modal-overlay" id="calendarModal" role="dialog" aria-modal="true" aria-labelledby="calendarModalTitle">
+  <div class="modal-box">
+    <button class="modal-close" id="calendarClose" aria-label="Close calendar">&times;</button>
+    <div id="calendarModalTitle" style="font-family:var(--font-display);font-weight:600;color:var(--ink-soft);font-size:.85rem;">TODAY'S DATE</div>
+    <div class="cal-date-big" id="calendarDate">--</div>
+    <div id="calendarDay" style="color:var(--ink-soft);font-size:.85rem;">&nbsp;</div>
+  </div>
+</div>
+
+<script src="js/main.js" defer></script>
+<script src="js/practice.js" defer></script>
+<script src="js/mobile-responsive.js"></script>
+</body>
+</html>
